@@ -1,37 +1,32 @@
-import React, { Component, useContext } from "react";
+import React from "react";
 import { scaleBand, scaleLinear } from "d3-scale";
 import Axes from "./Axes";
 import Bars from "./Bars";
 import * as d3 from "d3";
-import ResponsiveWrapper from "../ResponsiveWrapper";
-import { countLetterOcurences } from "../../utils/countLetterOcurences";
-import getDataForChart from "../../utils/getDataForChart";
-import chartsContext from "../../_context/chartsContext";
+import ResponsiveWrapper from "../../ResponsiveWrapper";
 
-const Chart = ({ parentWidth }) => {
-  const [state, dispatch] = useContext(chartsContext);
-
-  console.log("state---", state);
+const Chart = ({ parentWidth, data }) => {
   const margins = { top: 30, right: 50, bottom: 50, left: 70 };
   const width = 600 - margins.left - margins.right;
-  const height = 400 - margins.top - margins.bottom;
-  let letters = countLetterOcurences(state.text);
-  const data = getDataForChart(letters);
+  const height = 500 - margins.top - margins.bottom;
 
   const svgDimensions = {
     width: Math.max(parentWidth, 600),
     height: height
   };
 
+  const mergedData = [].concat.apply([], data);
+  console.log("me", mergedData);
+
   // scaleBand type
   const xScale = scaleBand()
     .padding(0.5)
-    .domain(data.map(d => d.letter))
+    .domain(mergedData.map(d => d.letter))
     .range([margins.left, svgDimensions.width - margins.right]);
 
   // scaleLinear type
   const yScale = scaleLinear()
-    .domain([0, d3.max(data, d => d.count)])
+    .domain([0, d3.max(mergedData, d => d.count)])
     .range([svgDimensions.height - margins.bottom, margins.top]);
 
   return (

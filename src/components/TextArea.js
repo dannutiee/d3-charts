@@ -1,26 +1,23 @@
 import React, { useContext, useState, useEffect } from "react";
 import chartsContext from "../_context/chartsContext";
-import { countLetterOcurences } from "../utils/countLetterOcurences";
 
-const TextArea = () => {
+const TextArea = ({ type }) => {
   const [state, dispatch] = useContext(chartsContext);
 
+  const setType = type == "user1" ? "SET_USER1_TEXT" : "SET_USER2_TEXT";
   const onTextInputChange = e => {
     dispatch({
-      type: "SET_TEXT",
-      ...state,
+      type: setType,
       text: e.target.value
     });
   };
-
-  //   console.log('countLetterOcurences', countLetterOcurences('Danuta'))
 
   return (
     <div>
       <input
         onChange={onTextInputChange}
         placeholder="Tekst"
-        value={state.text || ""}
+        value={state.text[type] || ""}
       />
     </div>
   );

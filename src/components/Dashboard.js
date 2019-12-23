@@ -34,7 +34,8 @@ const Dashboard = () => {
       </Section>
       <Section>
         <ItemWrapper>
-          <TextArea />
+          <TextArea type="user1" />
+          <TextArea type="user2" />
         </ItemWrapper>
       </Section>
     </DashboardWrapper>

@@ -3,7 +3,8 @@ import styled, { ThemeProvider } from "styled-components";
 import defaultTheme from "../theme";
 import { ChartsProvider } from "../_context/chartsContext";
 import { barChartReducer, initialBarChartState } from "../_reducers/barchart";
-import DemoBarChart from "../components/DemoBarChart";
+// import DemoBarChart from "../components/DemoBarChart";
+import Dashboard from "../components/Dashboard";
 
 const AppBody = styled.div`
   font-family: "Open sans", sans-serif;
@@ -16,7 +17,7 @@ const App = () => {
     <div className="App">
       <ChartsProvider value={useChartsState}>
         <ThemeProvider theme={defaultTheme}>
-          <DemoBarChart />
+          <Dashboard />
         </ThemeProvider>
       </ChartsProvider>
     </div>

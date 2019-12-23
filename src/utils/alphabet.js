@@ -1,1 +1,1 @@
-export const ALPHABET = 'abcdefghijklmnopqrstuvwxyz'.split('')
+export const ALPHABET = "abcdefghijklmnopqrstuvwxyz".split("");

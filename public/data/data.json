@@ -1,38 +1,38 @@
-[
-	{
-		"name": "a",
-		"height": "828"
-	},
-	{
-		"name": "S",
-		"height": "623"
-	},
-	{
-		"name": "b",
-		"height": "601"
-	},
-	{
-		"name": "g",
-		"height": "299"
-	},
-	{
-		"name": "h",
-		"height": "544.5"
-	},
-	{
-		"name": "O",
-		"height": "541.3"
-	},
-	{
-		"name": "t",
-		"height": "530"
+ [
+    {
+        "name": "a",
+        "height": "828"
     },
     {
-		"name": "n",
-		"height": "341.3"
-	},
-	{
-		"name": "e",
-		"height": "230"
-	}
+        "name": "S",
+        "height": "623"
+    },
+    {
+        "name": "b",
+        "height": "601"
+    },
+    {
+        "name": "g",
+        "height": "299"
+    },
+    {
+        "name": "h",
+        "height": "544.5"
+    },
+    {
+        "name": "O",
+        "height": "541.3"
+    },
+    {
+        "name": "t",
+        "height": "530"
+    },
+    {
+        "name": "n",
+        "height": "341.3"
+    },
+    {
+        "name": "e",
+        "height": "230"
+    }
 ]

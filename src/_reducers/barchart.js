@@ -1,14 +1,14 @@
 export const initialBarChartState = {
-  data: []
+  text:
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eleifend interdum dignissimzzz."
 };
 
 // todo
-export const barChartReducer = (state, { type, proposedDays }) => {
+export const barChartReducer = (state, { type, text }) => {
   switch (type) {
-    case "SET_DATE":
+    case "SET_TEXT":
       return {
-        proposedDays,
-        error: ""
+        text
       };
     default:
       return state;

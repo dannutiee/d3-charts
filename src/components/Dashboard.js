@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import DemoBarChart from "./DemoBarChart";
+import DemoPieChart from "./DemoPieChart";
 import TextArea from "./TextArea";
 
 const DashboardWrapper = styled.div`
@@ -15,9 +16,9 @@ const Section = styled.div`
 `;
 
 const ItemWrapper = styled.div`
-  width: 50%;
+  width: ${p => p.width}
   margin-right: 20px;
-  min-width: 600px;
+  min-width:  ${p => p.min};
   background: #252c47;
 `;
 
@@ -25,11 +26,11 @@ const Dashboard = () => {
   return (
     <DashboardWrapper>
       <Section>
-        <ItemWrapper>
+        <ItemWrapper width="70%" min="600px">
           <DemoBarChart />
         </ItemWrapper>
-        <ItemWrapper>
-          <DemoBarChart />
+        <ItemWrapper width="30%" min="400px">
+          <DemoPieChart />
         </ItemWrapper>
       </Section>
       <Section>

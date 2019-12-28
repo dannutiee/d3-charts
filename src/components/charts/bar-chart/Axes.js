@@ -8,7 +8,7 @@ export default ({ scales, margins, svgDimensions }) => {
     orient: "Bottom",
     scale: scales.xScale,
     translate: `translate(0, ${height - margins.bottom})`,
-    tickSize: height - margins.top - margins.bottom,
+    tickSize: -10,
     svgDimensions: svgDimensions,
     label: {
       transform: "rotate(0)",

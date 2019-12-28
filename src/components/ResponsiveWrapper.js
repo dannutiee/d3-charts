@@ -3,10 +3,8 @@ import styled from "styled-components";
 
 const Wrapper = styled.div`
   width: 100%;
-  min-width: 600px;
   .Responsive-chart-wrapper {
     width: 100%;
-    min-width: 300px;
     position: relative;
     svg {
       overflow: visible;

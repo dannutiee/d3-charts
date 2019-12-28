@@ -16,7 +16,6 @@ const Chart = ({ parentWidth, data }) => {
   };
 
   const mergedData = [].concat.apply([], data);
-  console.log("me", mergedData);
 
   // scaleBand type
   const xScale = scaleBand()

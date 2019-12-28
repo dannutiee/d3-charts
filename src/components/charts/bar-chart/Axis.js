@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import * as d3Axis from "d3-axis";
 import { select, selectAll } from "d3-selection";
 
-const SMOKE_COLOR = "#404861";
+const SMOKE_COLOR = "rgba(54, 61, 81, 0.7)";
 
 class Axis extends Component {
   componentDidMount() {
@@ -20,21 +20,26 @@ class Axis extends Component {
     const axisType = `axis${this.props.orient}`;
     const axis = d3Axis[axisType]()
       .scale(this.props.scale)
-      .tickSize(10)
+      .tickSize(-this.props.tickSize)
       .tickPadding([12]);
 
+    const axisBottom = select(".Axis-Bottom");
+
     const tick = selectAll(".tick");
-    tick
+    tick.selectAll("text").attr("y", "0");
+
+    axisBottom
+      .selectAll(".tick")
       .selectAll("text")
-      .attr("y", "15")
-      .attr("fill", "white");
-    tick.selectAll("line").attr("stroke", SMOKE_COLOR);
+      .attr("y", "15");
 
     select(this.axisElement)
       .call(axis)
       .style("text-anchor", "middle");
 
     selectAll(".domain").attr("stroke", SMOKE_COLOR);
+    selectAll("line").attr("stroke", SMOKE_COLOR);
+    selectAll("text").attr("fill", "white");
 
     // update labels positions
     selectAll(`.label-${orient}`)

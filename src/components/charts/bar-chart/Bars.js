@@ -24,7 +24,7 @@ const Bars = props => {
       </g>
     ));
     return (
-      <g>
+      <g key={i}>
         <SvgLinearGradient user={`user${i + 1}`} /> {group}
       </g>
     );

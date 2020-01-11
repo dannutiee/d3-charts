@@ -36,7 +36,8 @@ const Dashboard = () => {
         </ItemWrapper>
       </Section>
       <Section>
-        <ItemWrapper>
+        <ItemWrapper width="70%" min="600px"></ItemWrapper>
+        <ItemWrapper width="30%" min="400px">
           <TextArea type="user1" />
           <TextArea type="user2" />
         </ItemWrapper>

@@ -10,7 +10,9 @@ const Bars = ({ scales, margins, data, svgDimensions }) => {
 
   useEffect(() => {
     addTooltip("#bar-chart", "my-bartooltip");
+  }, []); // will run only once
 
+  useEffect(() => {
     selectAll(".bar-group")
       .on("mouseover", mouseover)
       .on("mousemove", mousemove)

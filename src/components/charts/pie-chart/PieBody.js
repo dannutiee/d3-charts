@@ -6,8 +6,11 @@ const PieBody = ({ data, svgDimensions }) => {
   const { height, width, margin } = svgDimensions;
 
   useEffect(() => {
-    renderPieChart();
     addTooltip("#pie-chart", "my-tooltip");
+  }, []); // will run only once
+
+  useEffect(() => {
+    renderPieChart();
   });
 
   // old componentDidUpdate

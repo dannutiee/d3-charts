@@ -1,23 +1,28 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import * as d3 from "d3";
 import { addTooltip, mouseleave, mousemove, mouseover } from "../../Tooltip";
 
-class PieBody extends React.Component {
-  componentDidMount() {
-    this.renderPieChart();
+const PieBody = ({ data, svgDimensions }) => {
+  const { height, width, margin } = svgDimensions;
+
+  useEffect(() => {
+    renderPieChart();
     addTooltip("#pie-chart", "my-tooltip");
-  }
+  });
 
-  componentDidUpdate() {
-    this.renderPieChart();
-  }
+  // old componentDidUpdate
+  const mounted = useRef();
+  useEffect(() => {
+    if (!mounted.current) {
+      mounted.current = true;
+    } else {
+      renderPieChart();
+    }
+  });
 
-  renderPieChart() {
-    const { data } = this.props;
-    const { margin, width, height } = this.props.svgDimensions;
-
+  const renderPieChart = () => {
     let radius = Math.min(width, height) / 2 - margin;
-    this.updatePieChart();
+    updatePieChart();
 
     let color = d3
       .scaleOrdinal()
@@ -51,21 +56,16 @@ class PieBody extends React.Component {
       .on("mouseover", mouseover)
       .on("mousemove", mousemove)
       .on("mouseleave", mouseleave);
-  }
+  };
 
-  updatePieChart() {
-    const { width, height } = this.props.svgDimensions;
-
+  const updatePieChart = () => {
     d3.selectAll(".pie-path").remove();
     d3.select("#chart-body").attr(
       "transform",
       "translate(" + width / 2 + "," + height / 2 + ")"
     );
-  }
-
-  render() {
-    return <g id="chart-body" />;
-  }
-}
+  };
+  return <g id="chart-body" />;
+};
 
 export default PieBody;

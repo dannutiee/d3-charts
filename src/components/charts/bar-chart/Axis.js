@@ -1,22 +1,28 @@
-import React, { Component } from "react";
+import React, { useEffect, useRef } from "react";
 import * as d3Axis from "d3-axis";
 import { select, selectAll } from "d3-selection";
 
 const SMOKE_COLOR = "rgba(54, 61, 81, 0.7)";
 
-class Axis extends Component {
-  componentDidMount() {
-    this.renderAxis();
-    this.addLabels();
-  }
+const Axis = ({ orient, label, tickSize, scale, translate }) => {
+  let axisElement = null;
 
-  componentDidUpdate() {
-    this.renderAxis();
-  }
+  useEffect(() => {
+    renderAxis();
+    addLabels();
+  });
 
-  renderAxis() {
-    const { orient, label, tickSize, scale } = this.props;
+  // old componentDidUpdate
+  const mounted = useRef();
+  useEffect(() => {
+    if (!mounted.current) {
+      mounted.current = true;
+    } else {
+      renderAxis();
+    }
+  });
 
+  const renderAxis = () => {
     const axisType = `axis${orient}`;
     const axis = d3Axis[axisType]()
       .scale(scale)
@@ -33,7 +39,7 @@ class Axis extends Component {
       .selectAll("text")
       .attr("y", "15");
 
-    select(this.axisElement)
+    select(axisElement)
       .call(axis)
       .style("text-anchor", "middle");
 
@@ -46,10 +52,9 @@ class Axis extends Component {
       .attr("x", label.Xposition)
       .attr("y", label.Yposition)
       .attr("transform", label.transform);
-  }
+  };
 
-  addLabels() {
-    const { orient, label } = this.props;
+  const addLabels = () => {
     selectAll(`.Axis-${orient}`)
       .append("text")
       .attr("class", `label-${orient}`)
@@ -60,20 +65,17 @@ class Axis extends Component {
       .attr("y", label.Yposition)
       .attr("transform", label.transform)
       .style("font-size", "12px");
-  }
+  };
 
-  render() {
-    const { orient, translate } = this.props;
-    return (
-      <g
-        className={`Axis Axis-${orient}`}
-        ref={el => {
-          this.axisElement = el;
-        }}
-        transform={translate}
-      />
-    );
-  }
-}
+  return (
+    <g
+      className={`Axis Axis-${orient}`}
+      ref={el => {
+        axisElement = el;
+      }}
+      transform={translate}
+    />
+  );
+};
 
 export default Axis;

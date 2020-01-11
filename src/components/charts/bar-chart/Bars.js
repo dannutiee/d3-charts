@@ -1,28 +1,35 @@
-import React, { Component } from "react";
+import React, { Fragment, useEffect, useRef } from "react";
 import { selectAll } from "d3-selection";
 import { renderGradients } from "../gradients";
 import * as d3 from "d3";
 import { addTooltip, mouseleave, mousemove, mouseover } from "../../Tooltip";
 
-class Bars extends React.Component {
-  componentDidMount() {
+const Bars = ({ scales, margins, data, svgDimensions }) => {
+  const { xScale, yScale } = scales;
+  const { height } = svgDimensions;
+
+  useEffect(() => {
     addTooltip("#bar-chart", "my-bartooltip");
 
     selectAll(".bar-group")
       .on("mouseover", mouseover)
       .on("mousemove", mousemove)
       .on("mouseleave", mouseleave);
-    this.renderBars();
-  }
 
-  componentDidUpdate() {
-    this.updateBars();
-  }
+    renderBars();
+  });
 
-  renderBars = () => {
-    const { scales, margins, data, svgDimensions } = this.props;
-    const { xScale, yScale } = scales;
-    const { height } = svgDimensions;
+  // old componentDidUpdate
+  const mounted = useRef();
+  useEffect(() => {
+    if (!mounted.current) {
+      mounted.current = true;
+    } else {
+      updateBars();
+    }
+  });
+
+  const renderBars = () => {
     let divide = data.length;
 
     for (let count in data) {
@@ -52,20 +59,17 @@ class Bars extends React.Component {
     }
   };
 
-  updateBars() {
+  const updateBars = () => {
     d3.selectAll(".bar-group").remove();
-    this.renderBars();
-  }
+    renderBars();
+  };
 
-  render() {
-    const { data } = this.props;
-    return (
-      <React.Fragment>
-        <g id="Bars"></g>
-        {renderGradients(data)}
-      </React.Fragment>
-    );
-  }
-}
+  return (
+    <Fragment>
+      <g id="Bars"></g>
+      {renderGradients(data)}
+    </Fragment>
+  );
+};
 
 export default Bars;

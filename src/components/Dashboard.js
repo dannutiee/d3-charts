@@ -17,9 +17,11 @@ const Section = styled.div`
 
 const ItemWrapper = styled.div`
   width: ${p => p.width}
-  margin-right: 20px;
   min-width:  ${p => p.min};
   background: #252c47;
+  &:first-child {
+    margin-right: 20px;
+  }
 `;
 
 const Dashboard = () => {

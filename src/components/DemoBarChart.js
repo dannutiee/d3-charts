@@ -7,12 +7,10 @@ import chartsContext from "../_context/chartsContext";
 const DemoBarChart = props => {
   const [state, dispatch] = useContext(chartsContext);
 
-  console.log("state---", state);
   let dataUser1 = getDataForChart(countLetterOcurences(state.text.user1));
   let dataUser2 = getDataForChart(countLetterOcurences(state.text.user2));
 
   const data = [dataUser1, dataUser2];
-  console.log("data", data);
 
   return (
     <div style={{ width: "100%", height: "100%" }}>

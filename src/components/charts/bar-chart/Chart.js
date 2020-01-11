@@ -29,21 +29,23 @@ const Chart = ({ parentWidth, data }) => {
     .range([svgDimensions.height - margins.bottom, margins.top]);
 
   return (
-    <svg width={svgDimensions.width} height={svgDimensions.height}>
-      <Axes
-        className="Axes"
-        scales={{ xScale, yScale }}
-        margins={margins}
-        svgDimensions={svgDimensions}
-      />
-      <Bars
-        className="Bars"
-        scales={{ xScale, yScale }}
-        margins={margins}
-        data={data}
-        svgDimensions={svgDimensions}
-      />
-    </svg>
+    <div id="bar-chart">
+      <svg width={svgDimensions.width} height={svgDimensions.height}>
+        <Axes
+          className="Axes"
+          scales={{ xScale, yScale }}
+          margins={margins}
+          svgDimensions={svgDimensions}
+        />
+        <Bars
+          className="Bars"
+          scales={{ xScale, yScale }}
+          margins={margins}
+          data={data}
+          svgDimensions={svgDimensions}
+        />
+      </svg>
+    </div>
   );
 };
 

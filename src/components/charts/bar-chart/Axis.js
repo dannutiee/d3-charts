@@ -15,12 +15,12 @@ class Axis extends Component {
   }
 
   renderAxis() {
-    const { orient, label } = this.props;
+    const { orient, label, tickSize, scale } = this.props;
 
-    const axisType = `axis${this.props.orient}`;
+    const axisType = `axis${orient}`;
     const axis = d3Axis[axisType]()
-      .scale(this.props.scale)
-      .tickSize(-this.props.tickSize)
+      .scale(scale)
+      .tickSize(-tickSize)
       .tickPadding([12]);
 
     const axisBottom = select(".Axis-Bottom");
@@ -63,13 +63,14 @@ class Axis extends Component {
   }
 
   render() {
+    const { orient, translate } = this.props;
     return (
       <g
-        className={`Axis Axis-${this.props.orient}`}
+        className={`Axis Axis-${orient}`}
         ref={el => {
           this.axisElement = el;
         }}
-        transform={this.props.translate}
+        transform={translate}
       />
     );
   }

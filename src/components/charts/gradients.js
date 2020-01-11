@@ -16,3 +16,10 @@ export const SvgLinearGradient = ({ user }) => {
     </linearGradient>
   );
 };
+
+export const renderGradients = data => {
+  const group = data.map((item, key) => (
+    <SvgLinearGradient key={key} user={`user${key + 1}`} />
+  ));
+  return group;
+};

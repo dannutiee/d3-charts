@@ -1,9 +1,11 @@
 import React from "react";
 import * as d3 from "d3";
+import { addTooltip, mouseleave, mousemove, mouseover } from "../../Tooltip";
 
 class PieBody extends React.Component {
   componentDidMount() {
     this.renderPieChart();
+    addTooltip("#pie-chart", "my-tooltip");
   }
 
   componentDidUpdate() {
@@ -35,6 +37,7 @@ class PieBody extends React.Component {
       .data(data_ready)
       .enter()
       .append("path")
+      .attr("class", "pie-path")
       .attr(
         "d",
         d3
@@ -43,8 +46,11 @@ class PieBody extends React.Component {
           .outerRadius(radius)
       )
       .attr("fill", d => color(d.data.key))
-      .attr("stroke", "black")
-      .style("stroke-width", "1px");
+      .attr("stroke", "none")
+      .attr("tooltipid", "#my-tooltip")
+      .on("mouseover", mouseover)
+      .on("mousemove", mousemove)
+      .on("mouseleave", mouseleave);
   }
 
   updatePieChart() {

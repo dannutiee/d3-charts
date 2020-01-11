@@ -14,13 +14,15 @@ const Chart = ({ parentWidth, data }) => {
   };
 
   return (
-    <svg
-      id="my_piechart"
-      width={svgDimensions.width}
-      height={svgDimensions.height}
-    >
-      <PieBody svgDimensions={svgDimensions} data={data} />
-    </svg>
+    <div id="pie-chart">
+      <svg
+        id="my_piechart"
+        width={svgDimensions.width}
+        height={svgDimensions.height}
+      >
+        <PieBody svgDimensions={svgDimensions} data={data} />
+      </svg>
+    </div>
   );
 };
 

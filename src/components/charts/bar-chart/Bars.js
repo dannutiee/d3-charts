@@ -42,8 +42,11 @@ const Bars = ({ scales, margins, data, svgDimensions }) => {
         .data(data[count])
         .enter()
         .append("g")
+        .attr("class", "bar")
         .attr("data-id", d => `${data[count].indexOf(d)}`)
         .append("rect")
+        .style("transition", "0.8s")
+        .style("opacity", "0.8")
         .attr(
           "x",
           d => xScale(d.letter) + +count * (2 + xScale.bandwidth() / divide)

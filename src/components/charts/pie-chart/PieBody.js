@@ -46,6 +46,8 @@ const PieBody = ({ data, svgDimensions }) => {
       .enter()
       .append("path")
       .attr("class", "pie-path")
+      .style("transition", "0.8s")
+      .style("opacity", "0.8")
       .attr(
         "d",
         d3
@@ -55,6 +57,7 @@ const PieBody = ({ data, svgDimensions }) => {
       )
       .attr("fill", d => color(d.data.key))
       .attr("stroke", "none")
+
       .attr("tooltipid", "#my-tooltip")
       .on("mouseover", mouseover)
       .on("mousemove", mousemove)

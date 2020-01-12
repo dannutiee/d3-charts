@@ -10,7 +10,7 @@ const Axis = ({ orient, label, tickSize, scale, translate }) => {
   useEffect(() => {
     renderAxis();
     addLabels();
-  });
+  }, []); // will run only once
 
   // old componentDidUpdate
   const mounted = useRef();

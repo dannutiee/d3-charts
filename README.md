@@ -7,7 +7,8 @@ This project was created as a product of my d3.js library learning. I wanted to 
 
 Let's check it on : 
 
-https://dannutiee.github.io/d3-charts/public/index
+ [https://dannutiee.github.io/d3-charts/](https://dannutiee.github.io/d3-charts/) 
+
 
 
 

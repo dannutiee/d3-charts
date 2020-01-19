@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/d3-charts/static/css/main.34de6062.chunk.css",
-    "main.js": "/d3-charts/static/js/main.5c6c676e.chunk.js",
-    "main.js.map": "/d3-charts/static/js/main.5c6c676e.chunk.js.map",
+    "main.js": "/d3-charts/static/js/main.3e1218fc.chunk.js",
+    "main.js.map": "/d3-charts/static/js/main.3e1218fc.chunk.js.map",
     "runtime-main.js": "/d3-charts/static/js/runtime-main.adfe6596.js",
     "runtime-main.js.map": "/d3-charts/static/js/runtime-main.adfe6596.js.map",
     "static/js/2.3af6b799.chunk.js": "/d3-charts/static/js/2.3af6b799.chunk.js",
     "static/js/2.3af6b799.chunk.js.map": "/d3-charts/static/js/2.3af6b799.chunk.js.map",
     "index.html": "/d3-charts/index.html",
-    "precache-manifest.70c5eedc5aad174bf41dae4dd5214c73.js": "/d3-charts/precache-manifest.70c5eedc5aad174bf41dae4dd5214c73.js",
+    "precache-manifest.344e7a82a26d36c282906ddfa3a82f3e.js": "/d3-charts/precache-manifest.344e7a82a26d36c282906ddfa3a82f3e.js",
     "service-worker.js": "/d3-charts/service-worker.js",
     "static/css/main.34de6062.chunk.css.map": "/d3-charts/static/css/main.34de6062.chunk.css.map",
     "static/js/2.3af6b799.chunk.js.LICENSE": "/d3-charts/static/js/2.3af6b799.chunk.js.LICENSE"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.adfe6596.js",
     "static/js/2.3af6b799.chunk.js",
     "static/css/main.34de6062.chunk.css",
-    "static/js/main.5c6c676e.chunk.js"
+    "static/js/main.3e1218fc.chunk.js"
   ]
 }

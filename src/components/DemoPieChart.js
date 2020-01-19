@@ -1,8 +1,14 @@
 import React, { useContext } from "react";
+import styled from "styled-components";
 import Chart from "./charts/pie-chart/Chart";
 import { countLetterOcurences } from "../utils/countLetterOcurences";
 import getDataForChart from "../utils/getDataForChart";
 import chartsContext from "../_context/chartsContext";
+
+const ChartWrapper = styled.div`
+  display: flex;
+  align-items: center;
+`;
 
 const DemoBarChart = props => {
   const [state, dispatch] = useContext(chartsContext);
@@ -28,12 +34,10 @@ const DemoBarChart = props => {
     user2: sumObjectValues(dataUser2)
   };
 
-  console.log("data", data);
-
   return (
-    <div style={{ width: "100%", height: "100%" }}>
+    <ChartWrapper style={{ width: "100%", height: "100%" }}>
       <Chart {...props} data={data} />
-    </div>
+    </ChartWrapper>
   );
 };
 

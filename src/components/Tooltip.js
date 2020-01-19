@@ -39,9 +39,11 @@ export const mousemove = function(d) {
   d.count && d3.selectAll(".bar").style("opacity", 0.4);
   d.count && d3.select(this.parentNode).style("opacity", 1);
 
+  let title = d.data ? d.data.key : d.letter;
+  let additionalText = d.data ? " letters" : "";
   tooltip(this)
     // .html("The exact value of<br>this cell is: ")
-    .html("The exact value of<br>this cell is: " + (d.value || d.count))
+    .html(title + ": " + (d.value || d.count) + additionalText)
     .style("top", d3.event.offsetY - 10 + "px")
     .style("left", d3.event.offsetX + 10 + "px")
     .style("opacity", 1)

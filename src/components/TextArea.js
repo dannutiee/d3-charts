@@ -22,6 +22,12 @@ const TextAreaWrapper = styled.div`
   }
 `;
 
+const UserName = styled.div`
+  margin-bottom: 10px;
+  color: ${p => p.textColor};
+  text-transform: capitalize;
+`;
+
 const TextArea = ({ type }) => {
   const [state, dispatch] = useContext(chartsContext);
 
@@ -34,12 +40,13 @@ const TextArea = ({ type }) => {
   };
 
   const userColors = {
-    user1: "#785ad0",
-    user2: "#f7c337"
+    user2: "#785ad0",
+    user1: "#f7c337"
   };
 
   return (
     <TextAreaWrapper usercolor={userColors[type]}>
+      <UserName textColor={userColors[type]}>{type}</UserName>
       <textarea
         onChange={onTextInputChange}
         placeholder="Tekst"

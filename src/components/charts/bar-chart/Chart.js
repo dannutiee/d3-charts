@@ -4,6 +4,7 @@ import Axes from "./Axes";
 import Bars from "./Bars";
 import * as d3 from "d3";
 import ResponsiveWrapper from "../../ResponsiveWrapper";
+import { getMergedData } from "../../../utils/getDataForChart";
 
 const Chart = ({ parentWidth, data }) => {
   const margins = { top: 30, right: 50, bottom: 50, left: 70 };
@@ -15,7 +16,7 @@ const Chart = ({ parentWidth, data }) => {
     height: height
   };
 
-  const mergedData = [].concat.apply([], data);
+  const mergedData = getMergedData(data);
 
   // scaleBand type
   const xScale = scaleBand()

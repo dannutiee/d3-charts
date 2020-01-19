@@ -25,7 +25,7 @@ const tooltip = hook => d3.select(d3.select(hook).attr("tooltipid"));
 
 // Three function that change the tooltip when user hover / move / leave a cell
 export const mouseover = function(d) {
-  d.count && d3.selectAll(".bar").style("opacity", 1);
+  // d.count && d3.selectAll(".bar").style("opacity", 1);
   tooltip(this).style("opacity", 1);
   d3.select(this)
     .style("stroke", "rgba(246, 246, 246, 0.4)")
@@ -33,11 +33,11 @@ export const mouseover = function(d) {
     .style("opacity", 1)
     .style("transition", "0.2s");
 
-  d.count && d3.select(this.parentNode).style("opacity", 0.8);
+  //d.count && d3.select(this.parentNode).style("opacity", 0.8);
 };
 export const mousemove = function(d) {
-  d.count && d3.selectAll(".bar").style("opacity", 0.4);
-  d.count && d3.select(this.parentNode).style("opacity", 1);
+  // d.count && d3.selectAll(".bar").style("opacity", 0.4);
+  // d.count && d3.select(this.parentNode).style("opacity", 1);
 
   let title = d.data ? d.data.key : d.letter;
   let additionalText = d.data ? " letters" : "";
@@ -52,11 +52,14 @@ export const mousemove = function(d) {
 export const mouseleave = function(d) {
   tooltip(this).style("opacity", 0);
   d3.select(this)
-    .style("stroke", "none")
+    // .style("stroke", "none")
     .style("opacity", 0.8)
     .style("transition", "0.2s");
 
-  d.count && d3.selectAll(".bar").style("opacity", 0.8);
+  d3.selectAll(".bar")
+    .selectAll("rect")
+    .style("stroke", "none");
+  d3.selectAll("path.pie-path").style("stroke", "none");
 };
 
 //

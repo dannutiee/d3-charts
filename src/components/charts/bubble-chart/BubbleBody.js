@@ -31,7 +31,8 @@ export const renderBubble = (width, height, dataCompressed) => {
     .on("mouseover", mouseover)
     .on("mousemove", mousemove)
     .on("mouseleave", mouseleave)
-    .attr("stroke", "rgba(221, 216, 216, 0.5)");
+    .attr("stroke", "rgba(221, 216, 216, 0.5)")
+    .style("opacity", 0.8);
 
   //add text only when the count of letter is greater than 0
   const text = d3

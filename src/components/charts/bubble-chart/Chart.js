@@ -31,6 +31,7 @@ const Chart = ({ parentWidth, data }) => {
   useEffect(() => {
     d3.selectAll(".bubble-chart").remove();
     renderBubble(width, height, dataCompressed);
+    console.log("update");
   });
 
   return <CenteredWrapper id="bubble-chart" />;

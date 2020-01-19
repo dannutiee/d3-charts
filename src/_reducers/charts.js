@@ -1,4 +1,4 @@
-export const initialBarChartState = {
+export const initialChartsState = {
   text: {
     user1:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eleifend interdum dignissimzzz.",
@@ -11,7 +11,7 @@ export const initialBarChartState = {
 };
 
 // todo
-export const barChartReducer = (state, { type, text }) => {
+export const chartsReducer = (state, { type, text }) => {
   switch (type) {
     case "SET_USER1_TEXT":
       return {

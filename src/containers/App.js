@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { ThemeProvider } from "styled-components";
 import defaultTheme from "../theme";
 import { ChartsProvider } from "../_context/chartsContext";
-import { barChartReducer, initialBarChartState } from "../_reducers/barchart";
+import { chartsReducer, initialChartsState } from "../_reducers/charts";
 import Dashboard from "../components/Dashboard";
 
 const AppWrapper = styled.div`
@@ -12,7 +12,7 @@ const AppWrapper = styled.div`
 `;
 
 const App = () => {
-  const useChartsState = useReducer(barChartReducer, initialBarChartState);
+  const useChartsState = useReducer(chartsReducer, initialChartsState);
 
   return (
     <AppWrapper className="App">

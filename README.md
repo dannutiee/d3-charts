@@ -1,6 +1,6 @@
 # My D3.js Experiments
 
-This project was created as a product of my d3.js library learning. I wanted to learn something more about creating charts and presenting data. I have created three kinds of charts. 
+This project was created as a product of my d3.js library studying. I wanted to learn something more about creating charts and presenting data. I have created three kinds of charts. 
  - bar chart which shows which user used which letter and how often
 - pie chart which shows the summary of all letters for both users
 - bubble chart that shows which letter was used the most ( counts are the summary of both users )
